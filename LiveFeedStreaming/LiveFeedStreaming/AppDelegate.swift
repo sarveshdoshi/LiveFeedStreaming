@@ -14,9 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setRootView()
         return true
     }
 
-
 }
 
+extension AppDelegate {
+    
+    func setRootView() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let liveFeedsPreviewVC = LiveFeedsPreviewVC()
+        window?.rootViewController = liveFeedsPreviewVC
+        window?.makeKeyAndVisible()
+    }
+    
+}
