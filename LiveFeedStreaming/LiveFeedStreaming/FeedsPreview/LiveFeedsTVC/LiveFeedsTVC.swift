@@ -37,7 +37,6 @@ class LiveFeedsTVC: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setVideoPlayerlayout()
     }
     
     
@@ -47,11 +46,14 @@ class LiveFeedsTVC: UITableViewCell {
 
     }
     
-    func passData(data: Video?, index: Int) {
+    func passData(data: Video?) {
         self.data = data
+    }
+    
+    func playVideoWithURL(urlStr: String, index: Int) {
         self.currentPlayedContentIndex = index
         
-        if let urlStr = data?.video, let url = URL(string: urlStr) {
+        if let url = URL(string: urlStr) {
             let asset = AVURLAsset(url: url)
             let playerItem = AVPlayerItem(asset: asset)
             avPlayerController.player?.actionAtItemEnd = .none
@@ -133,4 +135,17 @@ extension LiveFeedsTVC {
         }
     }
     
+    func pauseCurrentContent() {
+        pausePlayer()
+    }
+    
+    private func pausePlayer() {
+        self.avPlayerController.player?.pause()
+    }
+    
+    func releasePlayer() {
+        self.avPlayerController.player?.pause()
+        avPlayerController.player = nil
+        avPlayerController.removeFromParent()
+    }
 }
