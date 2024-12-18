@@ -16,8 +16,34 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="363" height="737"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkI-24-Grc">
+                        <rect key="frame" x="0.0" y="0.0" width="363" height="737"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3J-hE-oh3">
+                        <rect key="frame" x="0.0" y="0.0" width="363" height="737"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="WkI-24-Grc" secondAttribute="trailing" id="4xr-BX-MAX"/>
+                    <constraint firstItem="X3J-hE-oh3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="936-mC-6Aw"/>
+                    <constraint firstAttribute="bottom" secondItem="WkI-24-Grc" secondAttribute="bottom" id="KuU-3M-HP5"/>
+                    <constraint firstItem="X3J-hE-oh3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="V2m-rS-kkA"/>
+                    <constraint firstItem="WkI-24-Grc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZW4-1W-LLw"/>
+                    <constraint firstAttribute="trailing" secondItem="X3J-hE-oh3" secondAttribute="trailing" id="egi-aU-wG8"/>
+                    <constraint firstItem="WkI-24-Grc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gJz-2D-oe4"/>
+                    <constraint firstAttribute="bottom" secondItem="X3J-hE-oh3" secondAttribute="bottom" id="sZg-cx-oND"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="overlayView" destination="X3J-hE-oh3" id="vkH-Im-TeA"/>
+                <outlet property="playerBGView" destination="WkI-24-Grc" id="E19-k2-IYQ"/>
+            </connections>
             <point key="canvasLocation" x="113.74045801526717" y="263.73239436619718"/>
         </tableViewCell>
     </objects>

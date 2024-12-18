@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,23 +21,18 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="J8i-ig-Dn9">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="J8i-ig-Dn9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7oa-kF-MJr"/>
-                <constraint firstAttribute="bottom" secondItem="J8i-ig-Dn9" secondAttribute="bottom" id="E8v-AI-YQf"/>
-                <constraint firstItem="J8i-ig-Dn9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VrH-gG-fxF"/>
-                <constraint firstItem="J8i-ig-Dn9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g71-SD-Sxu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="J8i-ig-Dn9" secondAttribute="trailing" id="9WQ-mF-2QX"/>
+                <constraint firstItem="J8i-ig-Dn9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="saG-vV-lef"/>
+                <constraint firstItem="J8i-ig-Dn9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uiU-lt-XNJ"/>
+                <constraint firstAttribute="bottom" secondItem="J8i-ig-Dn9" secondAttribute="bottom" id="zTG-W8-DQj"/>
             </constraints>
             <point key="canvasLocation" x="81.679389312977094" y="19.718309859154932"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
