@@ -34,6 +34,7 @@ class LiveFeedsCVC: UICollectionViewCell {
     @IBOutlet weak var totalGiftCountLabel: UILabel!
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var commentView: UIView!
     
     let avPlayerController = AVPlayerViewController()
     var data: Video?
@@ -77,6 +78,7 @@ class LiveFeedsCVC: UICollectionViewCell {
         roseGiftView.layer.cornerRadius = 8
         timeView.layer.cornerRadius = timeView.frame.height / 2
         exploreView.layer.cornerRadius = exploreView.frame.height / 2
+        commentView.layer.cornerRadius = commentView.frame.height / 2
         profileNameLabel.font = .customFont(type: .medium, size: 10)
         likesCountLabel.font = .customFont(type: .medium, size: 10)
         profileNameLabel.textColor = .init(hex: "#DADADA")
