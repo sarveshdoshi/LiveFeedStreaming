@@ -6,6 +6,10 @@
 	objectVersion = 70;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C82AAB302D148E9200544E7D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C82AAB2F2D148E9200544E7D /* SDWebImage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		C83D2E992D11F6FC005996CC /* LiveFeedStreaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveFeedStreaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C82AAB302D148E9200544E7D /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +76,7 @@
 			);
 			name = LiveFeedStreaming;
 			packageProductDependencies = (
+				C82AAB2F2D148E9200544E7D /* SDWebImage */,
 			);
 			productName = LiveFeedStreaming;
 			productReference = C83D2E992D11F6FC005996CC /* LiveFeedStreaming.app */;
@@ -101,6 +107,9 @@
 			);
 			mainGroup = C83D2E902D11F6FC005996CC;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C82AAB2E2D148E9200544E7D /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = C83D2E9A2D11F6FC005996CC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,6 +337,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C82AAB2E2D148E9200544E7D /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.20.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C82AAB2F2D148E9200544E7D /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C82AAB2E2D148E9200544E7D /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C83D2E912D11F6FC005996CC /* Project object */;
 }

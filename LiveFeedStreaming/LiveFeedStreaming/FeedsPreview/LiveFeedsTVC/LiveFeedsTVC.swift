@@ -9,12 +9,31 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 import AVKit
+import SDWebImage
 
 class LiveFeedsTVC: UITableViewCell {
 
     @IBOutlet weak var playerBGView: UIView!
     @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var topLeftView: UIView!
+    @IBOutlet weak var followBtn: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var likesCountLabel: UILabel!
     
+    @IBOutlet weak var topicView: UIView!
+    @IBOutlet weak var topicLabel: UILabel!
+    
+    @IBOutlet weak var popularView: UIView!
+    @IBOutlet weak var popularLabel: UILabel!
+    @IBOutlet weak var usersView: UIView!
+    @IBOutlet weak var usersCountLabel: UILabel!
+    @IBOutlet weak var exploreView: UIView!
+    @IBOutlet weak var roseGiftView: UIView!
+    @IBOutlet weak var currentGiftCountLabel: UILabel!
+    @IBOutlet weak var totalGiftCountLabel: UILabel!
+    @IBOutlet weak var timeView: UIView!
+    @IBOutlet weak var timeLabel: UILabel!
     
     let avPlayerController = AVPlayerViewController()
     var data: Video?
@@ -32,6 +51,7 @@ class LiveFeedsTVC: UITableViewCell {
         // Initialization code
         playAudioBackground()
         addObservers()
+        setupUI()
     }
     
     
@@ -45,9 +65,41 @@ class LiveFeedsTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    @IBAction func dropDownTapped(_ sender: Any) {
+    }
+    
+    @IBAction func closeBtnTapped(_ sender: Any) {
+    }
+    
+    func setupUI() {
+        topLeftView.layer.opacity = 1
+        topLeftView.layer.cornerRadius = 8
+        followBtn.layer.cornerRadius = 8
+        profileImageView.layer.cornerRadius = 6
+        topicView.layer.cornerRadius = 8
+        popularView.layer.cornerRadius = 8
+        usersView.layer.cornerRadius = 8
+        roseGiftView.layer.cornerRadius = 8
+        timeView.layer.cornerRadius = timeView.frame.height / 2
+        exploreView.layer.cornerRadius = exploreView.frame.height / 2
+        profileNameLabel.font = .customFont(type: .medium, size: 10)
+        likesCountLabel.font = .customFont(type: .medium, size: 10)
+        profileNameLabel.textColor = .init(hex: "#DADADA")
+        likesCountLabel.textColor = .init(hex: "#DADADA")
+        followBtn.titleLabel?.font = .customFont(type: .medium, size: 12)
+        followBtn.setTitleColor(.white, for: .normal)
+        topicLabel.font = .customFont(type: .regular, size: 10)
+        popularLabel.font = .customFont(type: .regular, size: 10)
+        
+    }
     
     func passData(data: Video?) {
         self.data = data
+        self.profileNameLabel.text = data?.username ?? ""
+        self.likesCountLabel.text = data?.likes?.description ?? ""
+        self.profileImageView.sd_setImage(with: URL(string: data?.profilePicURL ?? ""), placeholderImage: UIImage(named: "placeholder.png"))
+        self.topicLabel.text = data?.topic?.capitalized ?? ""
+        self.usersCountLabel.text = "\(data?.viewers ?? 0)"
     }
     
     func playVideoWithURL(urlStr: String, index: Int) {
