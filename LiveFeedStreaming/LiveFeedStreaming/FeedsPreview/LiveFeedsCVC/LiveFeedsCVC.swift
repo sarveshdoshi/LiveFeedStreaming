@@ -1,5 +1,5 @@
 //
-//  LiveFeedsTVC.swift
+//  LiveFeedsCVC.swift
 //  LiveFeedStreaming
 //
 //  Created by Sarvesh Doshi on 17/12/24.
@@ -11,7 +11,7 @@ import MediaPlayer
 import AVKit
 import SDWebImage
 
-class LiveFeedsTVC: UITableViewCell {
+class LiveFeedsCVC: UICollectionViewCell {
 
     @IBOutlet weak var playerBGView: UIView!
     @IBOutlet weak var overlayView: UIView!
@@ -54,21 +54,16 @@ class LiveFeedsTVC: UITableViewCell {
         setupUI()
     }
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
     }
-    
-    
-   
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-    }
     @IBAction func dropDownTapped(_ sender: Any) {
+        
     }
     
     @IBAction func closeBtnTapped(_ sender: Any) {
+        
     }
     
     func setupUI() {
@@ -139,7 +134,7 @@ class LiveFeedsTVC: UITableViewCell {
     }
 }
 
-extension LiveFeedsTVC {
+extension LiveFeedsCVC {
     private func playAudioBackground() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])

@@ -10,7 +10,7 @@ import UIKit
 class LiveFeedsPreviewVC: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Properties
     let viewModel = LiveFeedsPreviewViewModel()
@@ -18,35 +18,30 @@ class LiveFeedsPreviewVC: UIViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "LiveFeedsTVC", bundle: .main), forCellReuseIdentifier: "LiveFeedsTVC")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.isPagingEnabled = true
-        tableView.contentInsetAdjustmentBehavior = .never
-        tableView.insetsContentViewsToSafeArea = false
+        collectionView.register(UINib(nibName: "LiveFeedsCVC", bundle: .main), forCellWithReuseIdentifier: "LiveFeedsCVC")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.isPagingEnabled = true
+        collectionView.contentInsetAdjustmentBehavior = .never
     }
 
 }
 
-extension LiveFeedsPreviewVC: UITableViewDelegate, UITableViewDataSource {
+extension LiveFeedsPreviewVC: UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return viewModel.feedData?.videos?.count ?? 0
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.feedData?.videos?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let data = viewModel.feedData?.videos?[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LiveFeedsTVC") as! LiveFeedsTVC
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LiveFeedsCVC", for: indexPath) as! LiveFeedsCVC
         cell.passData(data: data)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let cell = cell as? LiveFeedsTVC {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? LiveFeedsCVC {
             let data = viewModel.feedData?.videos?[indexPath.row]
             if let urlStr = data?.video {
                 cell.playVideoWithURL(urlStr: urlStr, index: indexPath.row)
@@ -54,12 +49,26 @@ extension LiveFeedsPreviewVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let cell = cell as? LiveFeedsTVC {
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? LiveFeedsCVC {
             cell.pauseCurrentContent()
             cell.releasePlayer()
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
 }

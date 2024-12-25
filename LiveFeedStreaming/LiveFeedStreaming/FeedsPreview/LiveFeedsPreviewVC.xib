@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LiveFeedsPreviewVC" customModule="LiveFeedStreaming" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="J8i-ig-Dn9" id="Tuq-fo-ZsO"/>
+                <outlet property="collectionView" destination="xiW-JQ-osI" id="YS5-Mw-tLM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,18 +19,24 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="J8i-ig-Dn9">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xiW-JQ-osI">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9fb-yp-8uV">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="J8i-ig-Dn9" secondAttribute="trailing" id="9WQ-mF-2QX"/>
-                <constraint firstItem="J8i-ig-Dn9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="saG-vV-lef"/>
-                <constraint firstItem="J8i-ig-Dn9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uiU-lt-XNJ"/>
-                <constraint firstAttribute="bottom" secondItem="J8i-ig-Dn9" secondAttribute="bottom" id="zTG-W8-DQj"/>
+                <constraint firstItem="xiW-JQ-osI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5ZF-CC-4yt"/>
+                <constraint firstItem="xiW-JQ-osI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9yP-aW-CZi"/>
+                <constraint firstItem="xiW-JQ-osI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Y9b-Kc-hSd"/>
+                <constraint firstAttribute="bottom" secondItem="xiW-JQ-osI" secondAttribute="bottom" id="n68-UU-0ul"/>
             </constraints>
             <point key="canvasLocation" x="81.679389312977094" y="19.718309859154932"/>
         </view>
